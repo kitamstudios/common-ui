@@ -6,6 +6,8 @@ import * as H from '../../hooks'
 
 export interface UpdateAppAlertProps {
   langId: string
+  checkInterval?: number
+  autoHideDuration?: number
 }
 
 const AlertHeadingText: LocalizedString = {
@@ -18,7 +20,7 @@ const UpdateButtonText: LocalizedString = {
   id: 'Memperbarui',
 }
 
-export const UpdateAppAlert = ({ langId }: UpdateAppAlertProps) => {
+export const UpdateAppAlert = ({ langId, checkInterval, autoHideDuration }: UpdateAppAlertProps) => {
   const [isUpdateAvailable, setUpdateAvailable] = useState(false)
 
   H.useInterval(async () => {
@@ -35,7 +37,7 @@ export const UpdateAppAlert = ({ langId }: UpdateAppAlertProps) => {
       updateAvailable,
     )
     setUpdateAvailable(updateAvailable)
-  }, 31_000)
+  }, checkInterval || 600_000)
 
   const handleClose = () => setUpdateAvailable(false)
 
@@ -48,10 +50,10 @@ export const UpdateAppAlert = ({ langId }: UpdateAppAlertProps) => {
     <M.Snackbar
       anchorOrigin={{
         vertical: 'bottom',
-        horizontal: 'left',
+        horizontal: 'right',
       }}
       open={isUpdateAvailable}
-      autoHideDuration={30_000}
+      autoHideDuration={autoHideDuration || 600_000}
       onClose={handleClose}
       message={AlertHeadingText[langId]}
       action={

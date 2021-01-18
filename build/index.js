@@ -174,7 +174,7 @@ var UpdateButtonText = {
     id: 'Memperbarui',
 };
 var UpdateAppAlert = function (_a) {
-    var langId = _a.langId;
+    var langId = _a.langId, checkInterval = _a.checkInterval, autoHideDuration = _a.autoHideDuration;
     var _b = __read(React.useState(false), 2), isUpdateAvailable = _b[0], setUpdateAvailable = _b[1];
     useInterval(function () { return __awaiter(void 0, void 0, void 0, function () {
         var version, updateAvailable;
@@ -191,7 +191,7 @@ var UpdateAppAlert = function (_a) {
                     return [2 /*return*/];
             }
         });
-    }); }, 31000);
+    }); }, checkInterval || 600000);
     var handleClose = function () { return setUpdateAvailable(false); };
     var handleUpdate = function () {
         handleClose();
@@ -199,8 +199,8 @@ var UpdateAppAlert = function (_a) {
     };
     return (React__default['default'].createElement(M.Snackbar, { anchorOrigin: {
             vertical: 'bottom',
-            horizontal: 'left',
-        }, open: isUpdateAvailable, autoHideDuration: 30000, onClose: handleClose, message: AlertHeadingText[langId], action: React__default['default'].createElement(React__default['default'].Fragment, null,
+            horizontal: 'right',
+        }, open: isUpdateAvailable, autoHideDuration: autoHideDuration || 600000, onClose: handleClose, message: AlertHeadingText[langId], action: React__default['default'].createElement(React__default['default'].Fragment, null,
             React__default['default'].createElement(M.Button, { color: "secondary", size: "small", onClick: handleUpdate }, UpdateButtonText[langId].toLocaleUpperCase()),
             React__default['default'].createElement(M.IconButton, { size: "small", "aria-label": "close", color: "inherit", onClick: handleClose },
                 React__default['default'].createElement(MIcon.Close, { fontSize: "small" }))) }));
