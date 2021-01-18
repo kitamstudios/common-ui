@@ -1,6 +1,7 @@
 dist
 node_modules
 build
+storybook-static
 
 # TODO: Uncomment these - all code should be compiled and linted
 jest.config.js
