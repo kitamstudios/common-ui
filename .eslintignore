@@ -1,4 +1,8 @@
 dist
 node_modules
 build
-public/pali_core
+
+# TODO: Uncomment these - all code should be compiled and linted
+jest.config.js
+jest.setup.ts
+rollup.config.js

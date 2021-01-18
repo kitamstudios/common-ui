@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
     "declaration": true,
     "declarationDir": "build",
     "baseUrl": ".",
@@ -38,9 +39,12 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
-    "jest.config.js",
-    "webpack.config.js",
-    "*.ts",
+    // TODO: Uncomment these - all code should be compiled and linted
+    // TODO: Change all js to ts
+    // "jest.config.js",
+    // "rollup.config.js",
+    // "*.ts",
+    // ".storybook/**/*",
     "src/**/*",
   ],
   "exclude": [
