@@ -24,6 +24,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react",
+    "noImplicitAny": false,
 
     /* Additional Checks */
     "noUnusedLocals": true /* Report errors on unused locals. */,

@@ -22,6 +22,15 @@ export default {
       sourcemap: true,
     },
   ],
+  external: [
+    'react',
+    'react-dom',
+    'react-router-dom',
+    '@material-ui/core',
+    '@material-ui/icons',
+    '@material-ui/styles',
+    '@material-ui/lab',
+  ],
   plugins: [
     peerDepsExternal(),
     resolve(),
